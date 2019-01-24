@@ -12,16 +12,17 @@ ioHook.on('mousemove', event => {
                 robotPos=event;
                 firstRobotMove=false;
             }
-            if (event.y > robotPos.y) {
+            if (event.y > robotPos.y+10) {
                 robot.scrollMouse(0, -2)
-            } else if(event.y < robotPos.y){
+            } else if(event.y < robotPos.y-10){
                 robot.scrollMouse(0, 2)
             }
-            if (event.x > robotPos.x) {
+            if (event.x > robotPos.x+10) {
                 robot.keyTap("right")
-            } else if(event.x < robotPos.x){
+            } else if(event.x < robotPos.x-10){
                 robot.keyTap("left")
             }
+            console.log(event.x,robotPos.x);
             locking = true;
             robot.moveMouse(anchor.x, anchor.y);
             setTimeout(() => {
